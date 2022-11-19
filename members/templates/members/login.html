@@ -1,0 +1,46 @@
+{% extends 'members/base.html' %}
+{% block content %}
+<br>
+
+
+
+	<form  class="" action="{% url 'login' %}" method="post">
+		{% csrf_token %}
+
+	<div class="form-floating mb-2">
+	  <input type="text" class="form-control" name="username" id="floatingInput" placeholder="john doe" autocomplete="off">
+	  <label for="floatingInput">User name</label>
+	</div>
+	<div class="form-floating">
+	  <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+	  <label for="floatingPassword">Password</label>
+	</div>
+	<br>
+	<button type="submit" class="btn btn-secondary btn-lg">login</button>
+
+	
+
+	</form>
+
+
+	<div  class="position-relative " style="display:flex; justify-content:center;align-items:;">
+
+	<div class="card text-center" style="width: 18rem;">
+	  <div class="card-body">
+	    <h5 class="card-title">Create a curstomer Account</h5>
+	    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+	   <a href="{% url 'Curstomer_register'%}" class="btn btn-primary">Signup now</a>
+	  </div>
+	</div>
+	<br>
+	<div class="card text-center" style="width: 18rem;">
+	  <div class="card-body">
+	    <h5 class="card-title">Create a  driver Account</h5>
+	    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+	    <a href="{% url 'Driver_register' %}" class="btn btn-primary">Signup now</a>
+	  </div>
+	</div>
+
+	</div>
+
+{% endblock content %}

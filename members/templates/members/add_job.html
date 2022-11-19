@@ -1,0 +1,17 @@
+{% extends 'members/base.html' %}
+
+{% block content %}
+<h1>add jobs here</h1>
+
+	<form action="" method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+
+
+		<button type="submit" class="btn btn-secondary btn-lg">add job</button>
+
+	</form>
+
+
+
+{% endblock content %}

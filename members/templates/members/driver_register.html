@@ -1,0 +1,10 @@
+{% extends 'members/base.html' %}
+{% block content %}
+	<form action="{% url 'Driver_register' %}" method="POST">
+		<h4>Get Driver account</h4>
+		{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit" class="btn btn-secondary">Register</button>
+
+	</form>
+{% endblock content %}

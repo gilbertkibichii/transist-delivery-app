@@ -1,0 +1,38 @@
+{% extends 'members/base.html' %}
+{% block content%}
+
+
+
+{% if jobs %}
+  {% for job in jobs %}
+ <div class="card w-75">
+  <div class="card-body">
+    <div class="card-title card-header ">
+    <h5 >{{ job.product }}</h5>
+      <p><span style="color: red;">from </span>: {{ job.origin }} <span style="color: green">To </span> : {{job.destination}}</p>
+    </div>
+    <br>
+   <p class="card-text"> cost ksh {{job.budget}}</p>
+    <p class="card-text">{{job.description}}</p>
+     <p class="card-text"> load size :{{job.load_size }} kgs</p>
+       <div class="card-footer border-secondary">
+          <a href="#" class="btn btn-secondary btn-sm">take job</a>
+        </div>
+  </div>
+</div>
+
+
+  {% endfor %}
+{% else %}
+
+  <div class="alert alert-warning d-flex align-items-center" role="alert">
+    <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/>
+    </svg>
+      <div>
+        An example warning alert with an icon
+      </div>
+</div>
+
+{% endif %}
+
+{% endblock content%}
