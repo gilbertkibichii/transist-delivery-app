@@ -1,35 +1,48 @@
 {% extends 'members/base.html' %}
 {% block content%}
 
-
-
 {% if jobs %}
-  {% for job in jobs %}
- <div class="card w-75">
-  <div class="card-body">
-    <div class="card-title card-header ">
-    <h5 >{{ job.product }}</h5>
-      <p><span style="color: red;">from </span>: {{ job.origin }} <span style="color: green">To </span> : {{job.destination}}</p>
-    </div>
-    <br>
-   <p class="card-text"> cost ksh {{job.budget}}</p>
-    <p class="card-text">{{job.description}}</p>
-     <p class="card-text"> load size :{{job.load_size }} kgs</p>
-       <div class="card-footer border-secondary">
-          <a href="#" class="btn btn-secondary btn-sm">take job</a>
-        </div>
-  </div>
-</div>
+  
 
 
-  {% endfor %}
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+     <th scope="col">product</th>
+      <th scope="col">from</th>
+      <th scope="col">To</th>
+      
+       <th scope="col">Update</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for job in jobs %}
+    <tr>
+       <td>{{ job.product }}</td>
+      <td>{{job.origin }}</td>
+      <td>{{job.destination}}</td>
+      <th scope="row">
+        <a href="{% url 'update-job' job.id %}" class="btn btn-outline-secondary btn-sm">Update</a>
+        <a href="{% url 'delete-job' job.id %}" class="btn btn-outline-danger btn-sm">delete</a>
+      </th>
+    </tr>
+     {% endfor %}
+ 
+  </tbody>
+</table>
+
+
+
+
+ 
 {% else %}
 
   <div class="alert alert-warning d-flex align-items-center" role="alert">
     <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/>
     </svg>
       <div>
-        An example warning alert with an icon
+        🔁🔁🔁🔁🔁🔁no job is currently available🔁🔁🔁🔁🔁🔁🔁
       </div>
 </div>
 

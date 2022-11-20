@@ -6,6 +6,25 @@ from .forms import CurstomerForm,DriverForm,JobForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 
+#delete the jobs 
+
+
+def delete_jobs(request,job_id):
+	job =Job.objects.get(pk=job_id)
+	job.delete()
+	return redirect('list-jobs')
+
+#update the jobs 
+def update_jobs(request,job_id):
+	job =Job.objects.get(pk=job_id)
+	form=JobForm(request.POST or None,instance=job)
+	if form.is_valid():
+		form.save()
+		return redirect('list-jobs')
+	return render(request,'members/update_job.html',{'form':form})
+
+
+
 #list of jobs display
 
 def list_jobs(request):
@@ -81,6 +100,7 @@ class Driver_register(CreateView):
 	model=User
 	form_class =DriverForm
 	template_name = 'members/driver_register.html'
+	redirect ="home"
 
 
 

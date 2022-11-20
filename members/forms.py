@@ -10,7 +10,30 @@ class JobForm(ModelForm):
 		fields =('product','assign_driver','owner','load_size','origin','destination','budget','description')
 
 
-		product =forms.TextInput(attrs={'class':'form-control','placeholder':'enter product name '})
+		labels = {
+
+		'product':'',
+		'assign_driver':'',
+		'owner':'select the owner of the product',
+		'load_size':'',
+		'origin':'',
+		'destination':'',
+		'budget':'',
+		'description':''
+
+		}
+
+
+		widgets= {
+			'product' :forms.TextInput(attrs={'class':'form-control','placeholder':'enter product name '}),
+			'assign_driver':forms.TextInput(attrs={'class':'form-control','placeholder':'assign driver imediatelly'}),
+			'owner':forms.Select(attrs={'class':'form-select','placeholder':''}),
+			'load_size':forms.TextInput(attrs={'class':'form-control','placeholder':'the capacity of the load in kgs'}),
+			'origin':forms.TextInput(attrs={'class':'form-control','placeholder':'good are delivered  from '}),
+			'destination':forms.TextInput(attrs={'class':'form-control','placeholder':'good are to be transported to '}),
+			'budget':forms.TextInput(attrs={'class':'form-control','placeholder':'estimate budget for transportation in ksh'}),
+			'description':forms.Textarea(attrs={'class':'form-control','placeholder':'give the description including the place to delievr to and from '})
+		}
 
 
 
