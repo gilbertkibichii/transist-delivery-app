@@ -1,11 +1,13 @@
 from django.contrib import admin
 from .models import User,Driver,Curstomer,Job
 from django.contrib.admin.models import LogEntry
+from django.contrib.auth.models import Group
 
 
 #admin.site.register(User)
 #admin.site.register(Driver)
 #admin.site.register(Curstomer)
+admin.site.unregister(Group)
 
 
 LogEntry.objects.all().delete()

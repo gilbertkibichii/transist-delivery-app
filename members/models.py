@@ -6,6 +6,7 @@ class User(AbstractUser):
 	is_driver = models.BooleanField(default=False)
 	first_name = models.CharField(max_length=100)
 	last_name = models.CharField(max_length=100)
+	#image =models.ImageField(default='',blank =True,upload_to ='images')
 
 
 

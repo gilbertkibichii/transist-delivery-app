@@ -13,6 +13,7 @@
       <th scope="col">To</th>
       
        <th scope="col">Update</th>
+
       
     </tr>
   </thead>
@@ -22,11 +23,13 @@
        <td>{{ job.product }}</td>
       <td>{{job.origin }}</td>
       <td>{{job.destination}}</td>
-      <th scope="row">
+      <th scope="row" >
+         <a href="{% url 'job_info' job.id %}" class="btn btn-outline-primary btn-sm">View Info</a>
         <a href="{% url 'update-job' job.id %}" class="btn btn-outline-secondary btn-sm">Update</a>
         <a href="{% url 'delete-job' job.id %}" class="btn btn-outline-danger btn-sm">delete</a>
       </th>
     </tr>
+ 
      {% endfor %}
  
   </tbody>

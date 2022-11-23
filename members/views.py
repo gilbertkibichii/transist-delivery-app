@@ -6,20 +6,49 @@ from .forms import CurstomerForm,DriverForm,JobForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 
+
+
+def job_info(request,job_id):
+	job=Job.objects.get(pk=job_id)
+	if request.user.is_driver or request.user.is_superuser:
+		return render(request,'members/job_info.html',{'job':job})
+
+	else:
+		messages.success(request,"only drivers are allowed to access this page ")
+		return redirect('list-jobs')
+
+
+
+
 #delete the jobs 
-
-
 def delete_jobs(request,job_id):
-	job =Job.objects.get(pk=job_id)
-	job.delete()
-	return redirect('list-jobs')
+	if request.user.is_curstomer or request.user.is_superuser:
+		job =Job.objects.get(pk=job_id)
+		if request.user ==job.owner:
+			job.delete()
+			return redirect('list-jobs')
+		else:
+			messages.success(request,'you\'re not allowed to delete this job !!!')
+			return redirect('list-jobs')
+
+	else:
+		messages.success(request,"access denied driver are not allowed to delete jobs")
+		return redirect('list-jobs')
 
 #update the jobs 
 def update_jobs(request,job_id):
 	job =Job.objects.get(pk=job_id)
-	form=JobForm(request.POST or None,instance=job)
-	if form.is_valid():
-		form.save()
+	if request.user ==job.owner or request.user.is_superuser:
+		form=JobForm(request.POST or None,instance=job)
+		if form.is_valid():
+			form.save()
+			return redirect('list-jobs')
+
+		#else:
+			#return render(request,'members/update_job.html',{'form':form})
+
+	else:
+		messages.success(request,"you`re not allowed to update this event")
 		return redirect('list-jobs')
 	return render(request,'members/update_job.html',{'form':form})
 
@@ -38,18 +67,29 @@ def list_jobs(request):
 
 #rendering form to add a job
 def add_job(request):
+
+
 	submitted=False
-	if request.method == "POST":
-		form=JobForm(request.POST)
-		if form.is_valid():
-			form.save()
-			submitted=True
-			return redirect('list-jobs')
-			messages.success(request, 'task added succesfull .')
+	if request.user.is_curstomer or request.user.is_superuser:
+		if request.method == "POST":
+			form=JobForm(request.POST)
+			if form.is_valid():
+				job_info =form.save(commit=False)
+				job_info.owner =request.user
+				#job_info.assign_driver=request.user.id
+				job_info.save()
+				submitted=True
+				messages.success(request, 'task added succesfull .')
+				return redirect('list-jobs')
+				
+		else:
+			form =JobForm
+			if submitted in request.GET:
+				submitted=True
+
 	else:
-		form =JobForm
-		if submitted in request.GET:
-			submitted=True
+		messages.success(request,"sorry permission denied,  you're not allowed to access this page ")
+		return redirect('list-jobs')
 
 	
 	return render(request,'members/add_job.html',{'form':form,'submitted':submitted})
@@ -75,6 +115,7 @@ def login_user(request):
 			return redirect('home')
 
 		else:
+			messages.success(request,"invalid login details please try again")
 			return redirect('login')
 
 
@@ -93,6 +134,9 @@ class Curstomer_register(CreateView):
 	model=User
 	form_class =CurstomerForm
 	template_name = 'members/curstomer_register.html'
+
+
+
 
 
 

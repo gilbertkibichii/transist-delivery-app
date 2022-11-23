@@ -7,14 +7,14 @@ from django.forms import ModelForm
 class JobForm(ModelForm):
 	class Meta:
 		model =Job
-		fields =('product','assign_driver','owner','load_size','origin','destination','budget','description')
+		fields =('product','assign_driver','load_size','origin','destination','budget','description')
 
 
 		labels = {
 
 		'product':'',
 		'assign_driver':'',
-		'owner':'select the owner of the product',
+		#'owner':'select the owner of the product',
 		'load_size':'',
 		'origin':'',
 		'destination':'',
@@ -27,7 +27,7 @@ class JobForm(ModelForm):
 		widgets= {
 			'product' :forms.TextInput(attrs={'class':'form-control','placeholder':'enter product name '}),
 			'assign_driver':forms.TextInput(attrs={'class':'form-control','placeholder':'assign driver imediatelly'}),
-			'owner':forms.Select(attrs={'class':'form-select','placeholder':''}),
+			#'owner':forms.Select(attrs={'class':'form-select','placeholder':''}),
 			'load_size':forms.TextInput(attrs={'class':'form-control','placeholder':'the capacity of the load in kgs'}),
 			'origin':forms.TextInput(attrs={'class':'form-control','placeholder':'good are delivered  from '}),
 			'destination':forms.TextInput(attrs={'class':'form-control','placeholder':'good are to be transported to '}),
@@ -43,6 +43,7 @@ class CurstomerForm(UserCreationForm):
 	last_name = forms.CharField(required=True,widget=forms.TextInput(attrs={'class':'form-control'}))
 	phone = forms.CharField(required=True,widget=forms.TextInput(attrs={'class':'form-control'}))
 	email = forms.EmailField(required=True,widget=forms.EmailInput(attrs={'class':'form-control'}))
+	#image =forms.ImageField(widget=forms.ImageInput())
 
 
 	class Meta(UserCreationForm.Meta):
