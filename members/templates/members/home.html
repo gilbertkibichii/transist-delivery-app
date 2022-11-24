@@ -1,15 +1,464 @@
 {% extends 'members/base.html' %}
 
 {% block content %}
-	<div style="display:flex;justify-content: space-beteen;">
-		<div style="width:45vw">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique finibus suscipit. Pellentesque efficitur viverra orci, ut posuere dolor ullamcorper in. Mauris semper vitae eros vitae ultrices. Nunc rhoncus, eros eget dictum aliquet, massa risus sollicitudin erat, in cursus lacus lacus vitae dolor. Nullam ullamcorper quis diam ac viverra. Nunc neque leo, vestibulum eget tristique in, consequat sed dolor. In semper purus in consequat condimentum. Mauris elementum ex et mattis tincidunt. Morbi tincidunt porttitor feugiat. Mauris rhoncus quam nisl, sed vulputate massa pharetra sed. Vivamus aliquam, sapien id pellentesque aliquam, diam urna auctor libero, eget eleifend nunc sapien at arcu.
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique finibus suscipit. Pellentesque efficitur viverra orci, ut posuere dolor ullamcorper in. Mauris semper vitae eros vitae ultrices. Nunc rhoncus, eros eget dictum aliquet, massa risus sollicitudin erat, in cursus lacus lacus vitae dolor. Nullam ullamcorper quis diam ac viverra. Nunc neque leo, vestibulum eget tristique in, consequat sed dolor. In semper purus in consequat condimentum. Mauris elementum ex et mattis tincidunt. Morbi tincidunt porttitor feugiat. Mauris rhoncus quam nisl, sed vulputate massa pharetra sed. Vivamus aliquam, sapien id pellentesque aliquam, diam urna auctor libero, eget eleifend nunc sapien at arcu
-		</div>
-		<div style="width:45vw">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique finibus suscipit. Pellentesque efficitur viverra orci, ut posuere dolor ullamcorper in. Mauris semper vitae eros vitae ultrices. Nunc rhoncus, eros eget dictum aliquet, massa risus sollicitudin erat, in cursus lacus lacus vitae dolor. Nullam ullamcorper quis diam ac viverra. Nunc neque leo, vestibulum eget tristique in, consequat sed dolor. In semper purus in consequat condimentum. Mauris elementum ex et mattis tincidunt. Morbi tincidunt porttitor feugiat. Mauris rhoncus quam nisl, sed vulputate massa pharetra sed. Vivamus aliquam, sapien id pellentesque aliquam, diam urna auctor libero, eget eleifend nunc sapien at arcu.
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique finibus suscipit. Pellentesque efficitur viverra orci, ut posuere dolor ullamcorper in. Mauris semper vitae eros vitae ultrices. Nunc rhoncus, eros eget dictum aliquet, massa risus sollicitudin erat, in cursus lacus lacus vitae dolor. Nullam ullamcorper quis diam ac viverra. Nunc neque leo, vestibulum eget tristique in, consequat sed dolor. In semper purus in consequat condimentum. Mauris elementum ex et mattis tincidunt. Morbi tincidunt porttitor feugiat. Mauris rhoncus quam nisl, sed vulputate massa pharetra sed. Vivamus aliquam, sapien id pellentesque aliquam, diam urna auctor libero, eget eleifend nunc sapien at arcu
-		</div>
-	</div>
 
-</div>
+
+
+<style type="text/css">
+	*
+{
+    margin: 0;
+    padding: 0;
+
+}
+
+body
+{
+    font-family: 'Poppins', sans-serif;
+}
+
+header
+{
+    background-color: red;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.navbar-custom
+{
+    background-color: #fff; 
+    opacity: 0.7; 
+    filter: alpha(opacity=50);
+    width: 100%;
+    top: 0px;
+    Z-index :999;
+    border: 0;
+    border-radius: 0;
+}
+
+.navbar-custom .navbar-nav a
+{
+    color: #000!important;
+    font-size: 17px;
+}
+
+.navbar-custom .navbar-nav a:hover
+{
+    color: #ff6c00 !important;
+    font-weight: bold;
+}
+
+.navbar-custom .navbar-nav .dropdown-menu a{
+    color: white!important;
+}
+
+.navbar-brand img 
+{
+    height: 20px;
+}
+.hero
+{
+    text-align: center;
+    padding-top: 10%;
+    top:50%;
+    left: 50%;
+    transform: translate(0,0);
+
+}
+
+
+.circle1
+{
+    border-radius:50%;
+    background: yellow;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+}
+.circle2
+{
+    border-radius:50%;
+    background: yellow;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+}
+.circle3
+{
+    border-radius:50%;
+    background: yellow;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.circle4
+{
+    border-radius:50%;
+    background: yellow;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 50px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius:50%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+}
+
+.space
+{
+    margin-bottom: 10px;
+}
+
+.circle1:hover .overlay {
+    opacity: 1;
+}
+.circle2:hover .overlay {
+    opacity: 1;
+}
+.circle3:hover .overlay {
+    opacity: 1;
+}
+.circle4:hover .overlay {
+    opacity: 1;
+}
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+.bg-light
+{
+    background-color: #f9f9f9;
+}
+
+section
+{
+    padding: 40px;
+}
+footer{
+    color: white;
+}
+footer a{
+    color: #bfffff;
+}
+footer a:hover{
+    color: white;
+}
+
+.footer-bottom{
+    background: #3d6277;
+    padding: 2em;
+}
+.footer-top{
+    background: #2d4958;  
+}
+.footer-middle{
+    background: #3d6277;
+    padding-top: 2em;
+    color: white;
+}
+/**Sub Navigation**/
+.subnavigation-container{
+    background: #3d6277;
+}
+.subnavigation .nav-link{
+    color: white;
+    font-weight: bold;
+}
+.subnavigation-container{
+    text-align: center;
+}
+.subnavigation-container .navbar{
+    display: inline-block;
+    margin-bottom: -6px; /* Inline-block margin offffset HACK -Gilron */
+}
+.col-subnav a{
+    padding: 1rem 1rem;
+    color: white;
+    font-weight: bold;
+}
+.col-subnav .active{
+    border-top:5px solid orange;
+    background: white;
+    color: black;
+}
+.social {
+    list-style: none;
+    padding: 0px;
+    margin-top: 25px;
+}
+.social a {
+    position: relative;
+    display: inline-block;
+    min-width: 40px;
+    padding: 10px 0px;
+    margin: 0px 5px;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgb(215, 215, 215);
+    border-radius: 40px;
+}
+
+a.social-icon {
+    text-decoration: none !important;
+    box-shadow: 0px 0px 1px rgb(51, 51, 51);
+    box-shadow: 0px 0px 1px rgba(51, 51, 51, 0.7);
+}
+a.social-icon:hover {
+    color: rgb(255, 255, 255) !important;
+}
+a.facebook {
+    color: rgb(59, 90, 154) !important;
+}
+a.facebook:hover {		
+    background-color: rgb(59, 90, 154) !important;
+}
+a.twitter {
+    color: rgb(45, 168, 225) !important;
+}
+a.twitter:hover {
+    background-color: rgb(45, 168, 225) !important;
+}
+a.github {
+    color: rgb(51, 51, 51) !important;
+}
+a.github:hover {
+    background-color: rgb(51, 51, 51) !important;
+}
+a.google-plus {
+    color: rgb(244, 94, 75) !important;
+}
+a.google-plus:hover {
+    background-color: rgb(244, 94, 75) !important;
+}
+a.linkedin {
+    color: rgb(1, 116, 179) !important;
+}
+a.linkedin:hover {
+    background-color: rgb(1, 116, 179) !important;
+}
+</style>
+
+<header>
+            <nav class="navbar-custom navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features">Featues</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-sm btn-warning"><i class="fa fa-user"></i>login</button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="hero">
+                <div class="fadeInDown animated">
+                    <h1 style="color: white">If you think you are too small to be effective,<br> you have never been in the dark with a mosquito.</h1>
+                </div>
+            </div>
+        </header>
+
+
+         <section id="features">
+
+            <h3 class="text-center">Features</h3>
+            <p class="lead">
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </p>
+            <br>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12 col-md-3 col-lg-3 ml-auto space">
+                        <div class="circle1">
+                            <img src="img/search.png" alt="Avatar" class="image">
+                            <div class="overlay">
+                                <div class="text">Hello World</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 col-lg-3 ml-auto space">
+                        <div class="circle2">
+                            <img src="img/search.png" alt="Avatar" class="image">
+                            <div class="overlay">
+                                <div class="text">Hello World</div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="col-12 col-md-3 col-lg-3 ml-auto space">
+                        <div class="circle3">
+                            <img src="img/search.png" alt="Avatar" class="image">
+                            <div class="overlay">
+                                <div class="text">Hello World</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-md-3 col-lg-3 ml-auto space">
+                        <div class="circle4">
+                            <img src="img/search.png" alt="Avatar" class="image">
+                            <div class="overlay">
+                                <div class="text">Hello World</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+            <div class="row justify-content-center" id="about">
+                <div class="col-md-10 offset-md-1">
+                    <div class="media">
+                        <img class="mr-3" src="img/bangalore.jpg" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0">Media heading</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div><br>
+                    <div class="media">
+                        <img class="mr-3" src="img/bangalore.jpg" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0">Media heading</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div><br>
+                    <div class="media">
+                        <img class="mr-3" src="img/bangalore.jpg" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0">Media heading</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </section>
+
+
+        <footer class="mainfooter" role="contentinfo" id="contact">
+            <div class="footer-middle">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <!--Column1-->
+                            <div class="footer-pad">
+                                <h4>Dummy Text</h4>
+                                <ul class="list-unstyled">
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#">One</a></li>
+                                    <li><a href="#">Two</a></li>
+                                    <li><a href="#">Three</a></li>
+                                    <li><a href="#">Five</a></li>
+                                    <li><a href="#">Six</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <!--Column1-->
+                            <div class="footer-pad">
+                                <h4>Dummy Text</h4>
+                                <ul class="list-unstyled">
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#">One</a></li>
+                                    <li><a href="#">Two</a></li>
+                                    <li><a href="#">Three</a></li>
+                                    <li><a href="#">Five</a></li>
+                                    <li><a href="#">Six</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <!--Column1-->
+                            <div class="footer-pad">
+                                <h4>Dummy Text</h4>
+                                <ul class="list-unstyled">
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#">One</a></li>
+                                    <li><a href="#">Two</a></li>
+                                    <li><a href="#">Three</a></li>
+                                    <li><a href="#">Five</a></li>
+                                    <li><a href="#">Six</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <!--Column1-->
+                            <div class="footer-pad">
+
+                                <div class="social">
+                                    <a href="#" class="social-icon facebook"><span class="fa fa-facebook"></span></a>
+
+                                    <a href="#"  class="social-icon twitter"><span class="fa fa-twitter"></span></a>
+
+
+                                    <a href="#" class="social-icon google-plus"><span class="fa fa-google-plus"></span></a>
+
+                                    <a href="#" class="social-icon linkedin"><span class="fa fa-linkedin"></span></a>
+                                </div>
+                                <p class="text-xs-center">© Copyright 2017 - 2018 </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+
+
+
+	
 	
 {% endblock content %}
