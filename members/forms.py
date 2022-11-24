@@ -7,7 +7,7 @@ from django.forms import ModelForm
 class JobForm(ModelForm):
 	class Meta:
 		model =Job
-		fields =('product','assign_driver','load_size','origin','destination','budget','description')
+		fields =('product','assign_driver','load_size','origin','destination','budget','description',)
 
 
 		labels = {
@@ -43,7 +43,6 @@ class CurstomerForm(UserCreationForm):
 	last_name = forms.CharField(required=True,widget=forms.TextInput(attrs={'class':'form-control'}))
 	phone = forms.CharField(required=True,widget=forms.TextInput(attrs={'class':'form-control'}))
 	email = forms.EmailField(required=True,widget=forms.EmailInput(attrs={'class':'form-control'}))
-	#image =forms.ImageField(widget=forms.ImageInput())
 
 
 	class Meta(UserCreationForm.Meta):

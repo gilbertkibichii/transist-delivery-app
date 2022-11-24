@@ -5,6 +5,31 @@ from .models import User,Curstomer,Driver,Job
 from .forms import CurstomerForm,DriverForm,JobForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from django.core.mail import send_mail
+
+def take_job(request,job_id):
+	job =Job.objects.get(pk=job_id)
+
+	if request.user.is_driver:
+		job.assign_driver=request.user.id
+		send_mail(
+			"bid for the job",
+			"I am exited to be applying for the Transport position ",
+			"{{request.user.email}}",
+			['{{job.owner.email}}'],
+			fail_silently=False
+			)
+		if job.assign_driver==request.user.id:
+			messages.success(request,"you've been assigned the task proceed to the destination")
+
+	return render(request,'members/take_job.html',{})
+
+
+
+def user(request,user_id):
+	user =User.objects.get(pk=user_id)
+	return render(request,'members/user.html',{'user':user})
+
 
 
 

@@ -1,6 +1,6 @@
 {% extends 'members/base.html' %}
 {% block content %}
-	<form action="{% url 'login' %}" method="POST">
+	<form action="{% url 'login' %}" method="POST" enctype="multipath/form-data">
 		<h4>Get Driver account</h4>
 		{% csrf_token %}
 		{{form.as_p}}

@@ -7,13 +7,26 @@
 	<div class="card border-success mb-3" style="max-width: 30rem;">
   <div class="card-header bg-transparent border-success"><h3>{{ job.product }}</h3></div>
   <div class="card-body text-success">
-    <p class="card-title" style="font-size: 1.2em"> The {{job.product}} are to be transported from {{ job.origin }} to {{ job.destination }}. The capacity of the load is {{ job.load_size }} </p>
+    <p class="card-title" style="font-size: 1.2em"> 
+      <ul>
+        <li>product: {{job.product}}</li>
+        <li> from:  {{ job.origin }} </li>
+        <li> to :{{ job.destination }}. </li>
+        <li> capacity : {{ job.load_size }}</li>
+      </ul>
+      
+   
+ 
+
     <br>
-    <h1>curstomer description</h1>
-    {{job.description }}
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="text-secondary">
+     {{job.description }}
   </div>
-  <div class="card-footer bg-transparent border-success">Footer</div>
+
+    <p class="card-text"></p>
+  </div>
+  <div class="card-footer bg-transparent border-success">
+   <a href="{% url 'take_job' job.id %}"> <button type="submit" class="btn btn-outline-dark">take job</button></a></div>
 </div>
 
 {% endblock content %}

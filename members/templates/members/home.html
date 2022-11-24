@@ -1,6 +1,35 @@
 {% extends 'members/base.html' %}
 
 {% block content %}
-	<h1 class="container">welcome home</h1>
+<div style="background-color:lightgray; position: fixed;scrollbar-color: lightblue;">
+	<h1 class="container" style="background-color: darkgoldenrod;text-align: center; 
+	width: 100vw;">welcome home</h1>
+	<nav class="navbar navbar-expand-lg bg-dark sticky-top">
+		<div class="container-fluid">
+			 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			 	<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			 		 <li class="nav-item">
+				          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+			        </li>
+			         <li class="nav-item">
+				          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">About</a>
+			        </li>
+			         <li class="nav-item">
+				          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Contact</a>
+			        </li>
+			 	</ul>
+			 </div>
+		</div>
+	</nav>
+	<div style="display:flex;justify-content: space-beteen;">
+		<div style="width:45vw">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique finibus suscipit. Pellentesque efficitur viverra orci, ut posuere dolor ullamcorper in. Mauris semper vitae eros vitae ultrices. Nunc rhoncus, eros eget dictum aliquet, massa risus sollicitudin erat, in cursus lacus lacus vitae dolor. Nullam ullamcorper quis diam ac viverra. Nunc neque leo, vestibulum eget tristique in, consequat sed dolor. In semper purus in consequat condimentum. Mauris elementum ex et mattis tincidunt. Morbi tincidunt porttitor feugiat. Mauris rhoncus quam nisl, sed vulputate massa pharetra sed. Vivamus aliquam, sapien id pellentesque aliquam, diam urna auctor libero, eget eleifend nunc sapien at arcu.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique finibus suscipit. Pellentesque efficitur viverra orci, ut posuere dolor ullamcorper in. Mauris semper vitae eros vitae ultrices. Nunc rhoncus, eros eget dictum aliquet, massa risus sollicitudin erat, in cursus lacus lacus vitae dolor. Nullam ullamcorper quis diam ac viverra. Nunc neque leo, vestibulum eget tristique in, consequat sed dolor. In semper purus in consequat condimentum. Mauris elementum ex et mattis tincidunt. Morbi tincidunt porttitor feugiat. Mauris rhoncus quam nisl, sed vulputate massa pharetra sed. Vivamus aliquam, sapien id pellentesque aliquam, diam urna auctor libero, eget eleifend nunc sapien at arcu
+		</div>
+		<div style="width:45vw">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique finibus suscipit. Pellentesque efficitur viverra orci, ut posuere dolor ullamcorper in. Mauris semper vitae eros vitae ultrices. Nunc rhoncus, eros eget dictum aliquet, massa risus sollicitudin erat, in cursus lacus lacus vitae dolor. Nullam ullamcorper quis diam ac viverra. Nunc neque leo, vestibulum eget tristique in, consequat sed dolor. In semper purus in consequat condimentum. Mauris elementum ex et mattis tincidunt. Morbi tincidunt porttitor feugiat. Mauris rhoncus quam nisl, sed vulputate massa pharetra sed. Vivamus aliquam, sapien id pellentesque aliquam, diam urna auctor libero, eget eleifend nunc sapien at arcu.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique finibus suscipit. Pellentesque efficitur viverra orci, ut posuere dolor ullamcorper in. Mauris semper vitae eros vitae ultrices. Nunc rhoncus, eros eget dictum aliquet, massa risus sollicitudin erat, in cursus lacus lacus vitae dolor. Nullam ullamcorper quis diam ac viverra. Nunc neque leo, vestibulum eget tristique in, consequat sed dolor. In semper purus in consequat condimentum. Mauris elementum ex et mattis tincidunt. Morbi tincidunt porttitor feugiat. Mauris rhoncus quam nisl, sed vulputate massa pharetra sed. Vivamus aliquam, sapien id pellentesque aliquam, diam urna auctor libero, eget eleifend nunc sapien at arcu
+		</div>
+	</div>
+
+</div>
 	
 {% endblock content %}

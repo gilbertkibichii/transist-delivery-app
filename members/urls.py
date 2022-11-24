@@ -11,5 +11,7 @@ urlpatterns = [
 	path('home/',views.home, name ='home'),
 	path('login/',views.login_user,name='login'),
 	path('logout/',views.logout_user, name='logout'),
-	path('job_info/<job_id>/',views.job_info,name='job_info')
+	path('job_info/<job_id>/',views.job_info,name='job_info'),
+	path('user/<user_id>/',views.user,name='user'),
+	path('take_job/<job_id>/',views.take_job,name='take_job')
 ]

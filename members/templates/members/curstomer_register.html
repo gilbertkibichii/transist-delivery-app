@@ -1,7 +1,7 @@
 {% extends 'members/base.html' %}
 {% block content %}
 	<h3>register as curstomer</h3>
-	<form action="{% url 'login' %}" method="POST">
+	<form action="{% url 'login' %}" method="POST" enctype="multipath/form-data">
 		{% csrf_token %}
 		{{form.as_p}}
 		<input type="submit" name="register">
